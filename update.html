@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Update Blood Availability</title>
+  <style>
+    body {
+      background-color: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .form-box {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #7BA098;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #7BA098;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      color:#7BA098;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Update Blood Availability</h2>
+    <form id="bloodForm">
+      <input type="number" name="id" placeholder="Hospital ID" required />
+      <input type="text" name="bloodAvailability" placeholder="New Blood Availability" required />
+      <button type="submit">Update</button>
+      <div class="message" id="msg"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("bloodForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        id: parseInt(form.id.value),
+        bloodAvailability: form.bloodAvailability.value.trim()
+      };
+
+      try {
+        const response = await fetch("/api/hospitals/update", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        document.getElementById("msg").textContent = result.message || "Update failed";
+      } catch (err) {
+        document.getElementById("msg").textContent = "Error updating data.";
+      }
+    });
+  </script>
+</body>
+</html>

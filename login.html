@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+   <link rel="stylesheet" href="/style.css">
+   <style>
+    body{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    }
+    p{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;    
+        font-size: 20px;
+        font-weight:500;
+   }
+   a:hover{
+    text-decoration:underline;
+    color: #1c6a59;
+   }
+   a{
+    color: #1c6a59;
+   }
+   section{
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+   }
+    form{
+  display: grid;
+    border: 2px solid #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    width: 300px;
+    height:300px ;
+    transform: translateY(0%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    line-height: 0%
+}
+button{
+    background-color: #7BA098;
+    color: black;
+    font-weight: 550;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;    
+}
+label{ 
+    font-size: 20px;
+}
+.head{
+    color: black;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+    <center>
+        <br><br>
+       <p class="head">WELCOME BACK !!</p>
+         </center>
+    
+      <div>
+        <form action="/login"method="POST"> 
+           <center><p>Log In</p></center> 
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your Hospital Name" required >
+            <br>
+             <label for="blood">Blood Group:</label>
+            <input type="text" id="blood" name="blood" placeholder="Enter your Blood" required >
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <br>
+            <button type="submit">Log In</button>
+        </form>  
+    </div>
+    
+    <br>
+    <center>
+        <p>Create an account? <a onclick="window.location.href='/'">SIGN UP</a></p>
+
+    </center>
+    </div>
+</body>
+</html>
