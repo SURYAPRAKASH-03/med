@@ -16,10 +16,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // HTML Routes
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-app.get('/login', (req, res) => res.sendFile(path.join(__dirname, 'login.html')));
-app.get('/hospitals', (req, res) => res.sendFile(path.join(__dirname, 'hospitals.html')));
-app.get('/update', (req, res) => res.sendFile(path.join(__dirname, 'update.html')));
-app.get('/information', (req, res) => res.sendFile(path.join(__dirname, 'information.html')));
+app.get('login', (req, res) => res.sendFile(path.join(__dirname, 'login.html')));
+app.get('hospitals', (req, res) => res.sendFile(path.join(__dirname, 'hospitals.html')));
+app.get('update', (req, res) => res.sendFile(path.join(__dirname, 'update.html')));
+app.get('information', (req, res) => res.sendFile(path.join(__dirname, 'information.html')));
 
 // MongoDB Connection
 const uri = 'mongodb+srv://suryaprakash1:prakash003@cluster0.llqz2qh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
@@ -61,7 +61,7 @@ app.post('/index', async (req, res) => {
     res.send(`
       <script>
         alert('Signin successful!');
-        window.location.href = '/login';
+        window.location.href = 'login';
       </script>
     `);
   } catch (err) {
@@ -75,12 +75,12 @@ app.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ username, blood, password });
     if (user) {
-      res.redirect('/hospitals');
+      res.redirect('hospitals');
     } else {
       res.send(`
         <script>
           alert('Login failed!');
-          window.location.href = '/login';
+          window.location.href = 'login';
         </script>
       `);
     }
@@ -98,7 +98,7 @@ app.post('/information', async (req, res) => {
     res.send(`
       <script>
         alert('Hospital information added!');
-        window.location.href = '/hospitals';
+        window.location.href = 'hospitals';
       </script>
     `);
   } catch (err) {
