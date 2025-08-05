@@ -16,10 +16,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // HTML Routes
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-app.get('login', (req, res) => res.sendFile(path.join(__dirname, 'login.html')));
-app.get('hospitals', (req, res) => res.sendFile(path.join(__dirname, 'hospitals.html')));
-app.get('update', (req, res) => res.sendFile(path.join(__dirname, 'update.html')));
-app.get('information', (req, res) => res.sendFile(path.join(__dirname, 'information.html')));
+app.get('/login', (req, res) => res.sendFile(path.join(__dirname, 'login.html')));
+app.get('/hospitals', (req, res) => res.sendFile(path.join(__dirname, 'hospitals.html')));
+app.get('/update', (req, res) => res.sendFile(path.join(__dirname, 'update.html')));
+app.get('/information', (req, res) => res.sendFile(path.join(__dirname, 'information.html')));
 
 // MongoDB Connection
 const uri = 'mongodb+srv://suryaprakash1:prakash003@cluster0.llqz2qh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
